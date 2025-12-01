@@ -1,0 +1,37 @@
+Problemas de Herança e Duplicação
+duplicação de codigo = mudar de posiçao ,  falta da classe dado no projeto, remover random de jogador
+chamar apenas Dado.rolar(), gerando seu resultado
+método mudarPosicao deve ser uma operação do próprio jogador, sem precisar receber a si mesmo como parâmetro. Use this dentro do método.
+Usar Enum e Polimorfismo: Usar o nome da Classe para definir o tipo. Se for necessário saber o tipo, use um Enum TipoJogador { NORMAL, AZARADO, SORTUDO } e um método na classe Jogador que o retorne.
+
+Problemas Estruturais (Tabuleiro)
+Criar uma classe Casa (ou CasaDoTabuleiro) para encapsular a posição, o tipo (Enum TipoCasa) e o efeito. O Tabuleiro deve ter uma lista de objetos Casa
+Long Method = Tabuleiro -> Mover Método / Usar Enum: Substituir as Strings por um Enum TipoCasa { NORMAL, SORTE, STOP, ... }. Criar um método privado inicializarCasas() que inicialize uma lista de objetos Casa
+Large Class = Tabuleiro -> Extrair Classes: Mover os métodos de efeito (casaDaSorte, casaStop, etc.) para o objeto Casa ou para uma classe EfeitoDeCasa (padrão Strategy). Mover relatorioGeral para uma classe de Exibição/Relatório.
+Usar Polimorfismo (Strategy): Cada objeto Casa deve ser capaz de aplicar seu próprio efeito. Mude verificarCasa para algo como casas[posicao].aplicarEfeito(jogador, jogadores, tabuleiro, read).
+
+Problemas de Responsabilidade
+A classe Jogo lida com a interação com o usuário (pedir nome, cor), a lógica de sorteio do tipo de jogador, e a validação complexa do tipo de jogador.
+Criar métodos menores, como solicitarDetalhesJogador(), sortearETipoCadastrar(), validarTiposMinimos().
+Implementar uma classe PlayerFactory com um único método criarJogador(nome, cor, tipoSorteado) para centralizar a lógica de instanciação
+Mover essa lógica para a classe que detém a lista (ex: Jogo ou Tabuleiro) com a assinatura: encontrarJogadorPorNome(ArrayList<Jogador> jogadores, String nome).
+A classe Debug deve focar apenas no estado de debug. Mova o input e output para a classe Main (ou um UI Handler). O método pode retornar a posição desejada para que o Jogo a utilize
+
+
+jogoTabuleiro
+├── Abstrações
+│   ├── IComportamentoDeDados  // Interface para Sortudo, Azarado
+│   └── TipoCasa.java           // Enum
+├── Componentes
+│   └── Dado.java               // Classe estática/singleton para rolagem
+├── Controles
+│   ├── Debug.java
+│   ├── FabricaDeJogador.java   // Centraliza a criação de jogadores
+│   └── Jogo.java
+├── Jogador
+│   ├── Jogador.java            // Classe base, com método 'rolar' genérico
+│   ├── JogadorAzarado.java     // Implementa regra especial
+│   └── JogadorSortudo.java     // Implementa regra especial
+└── Tabuleiro
+    ├── Casa.java               // Encapsula o estado e o efeito da casa
+    └── Tabuleiro.java          // Gerencia a lista de Casa
