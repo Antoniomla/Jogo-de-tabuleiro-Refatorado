@@ -1,7 +1,7 @@
 package jogoTabuleiro.Tabuleiro;
 
-import jogoTabuleiro.Abstraçao.TipoCasa;
-import jogoTabuleiro.Abstraçao.TipoJogador;
+import jogoTabuleiro.Abstracao.TipoCasa;
+import jogoTabuleiro.Abstracao.TipoJogador;
 import jogoTabuleiro.Interface.Main;
 import jogoTabuleiro.Jogador.Jogador;
 import jogoTabuleiro.Jogador.FabricadeJogador;

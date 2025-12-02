@@ -1,5 +1,5 @@
 package jogoTabuleiro.Jogador;
-import jogoTabuleiro.Abstraçao.TipoJogador;
+import jogoTabuleiro.Abstracao.TipoJogador;
 import jogoTabuleiro.Interface.Main;
 import jogoTabuleiro.Tabuleiro.Dado;
 

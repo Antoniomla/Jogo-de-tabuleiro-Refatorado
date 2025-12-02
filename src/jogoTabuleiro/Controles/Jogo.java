@@ -1,14 +1,12 @@
 package jogoTabuleiro.Controles;
 
-import jogoTabuleiro.Abstraçao.TipoJogador;
-import jogoTabuleiro.Jogador.Jogador;
-import jogoTabuleiro.Jogador.JogadorAzarado;
-import jogoTabuleiro.Jogador.JogadorSortudo;
-import jogoTabuleiro.Tabuleiro.Tabuleiro;
+import java.util.*;
+
+import jogoTabuleiro.Abstracao.TipoJogador;
 import jogoTabuleiro.Interface.Main;
 import jogoTabuleiro.Jogador.FabricadeJogador;
-
-import java.util.*;
+import jogoTabuleiro.Jogador.Jogador;
+import jogoTabuleiro.Tabuleiro.Tabuleiro;
 
 public class Jogo {
     // Método auxiliar removido, pois a FabricaDeJogador garante os tipos
@@ -77,8 +75,6 @@ public class Jogo {
                             jogadorTurnoAtual.getCor(), jogadorTurnoAtual.getNome(), Main.ANSI_RESET,
                             jogadorTurnoAtual.getTipo().getDescricao());
 
-                    int passos = 0;
-
                     if (debug.isDebugAtivo()){
                         int posicaoForcada = debug.solicitarPosicao(jogadorTurnoAtual, read);
                         jogadorTurnoAtual.setPosicao(posicaoForcada); // Move diretamente
@@ -86,7 +82,7 @@ public class Jogo {
                     } else {
                         System.out.println("(Pressione ENTER para rolar os dados)");
                         read.nextLine(); // Espera o input para rolar
-                        passos = jogadorTurnoAtual.mudarPosicao(); // MudarPosicao refatorado
+                        int passos = jogadorTurnoAtual.mudarPosicao(); // MudarPosicao refatorado
                     }
 
                     // Aplica efeitos da casa na posição final

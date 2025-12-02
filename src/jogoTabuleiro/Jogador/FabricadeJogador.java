@@ -1,7 +1,8 @@
 package jogoTabuleiro.Jogador;
 
 import java.util.Random;
-import jogoTabuleiro.Abstraçao.TipoJogador;
+
+import jogoTabuleiro.Abstracao.TipoJogador;
 
 public class FabricadeJogador {
     public static Jogador criarJogador(String nome, String cor, int posicao, TipoJogador tipo) {

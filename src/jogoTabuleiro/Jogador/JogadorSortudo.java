@@ -1,6 +1,6 @@
 package jogoTabuleiro.Jogador;
 
-import jogoTabuleiro.Abstraçao.TipoJogador;
+import jogoTabuleiro.Abstracao.TipoJogador;
 
 public class JogadorSortudo extends Jogador {
 

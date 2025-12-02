@@ -1,10 +1,8 @@
 package jogoTabuleiro.Tabuleiro;
 
-import jogoTabuleiro.Abstraçao.TipoCasa;
+import jogoTabuleiro.Abstracao.TipoCasa;
 import jogoTabuleiro.Interface.Main;
 import jogoTabuleiro.Jogador.Jogador;
-import jogoTabuleiro.Jogador.JogadorAzarado;
-import jogoTabuleiro.Jogador.JogadorSortudo;
 
 import java.util.*;
 
